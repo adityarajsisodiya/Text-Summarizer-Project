@@ -26,7 +26,7 @@ def read_yaml(path_to_yaml:path) -> ConfigBox:
             content = yaml.safe_load(yaml_file)
             logger.info(f"yaml file : {path_to_yaml} loaded successfully")
             return ConfigBox(content)
-    except BoxValuedError:
+    except BoxValueError:
         raise ValueError("yaml file is empty")
     except Exception as e:
         raise e
@@ -52,7 +52,7 @@ def create_directories(path_to_directories : list,verbose=True):
 
 
 @ensure_annotations
-def get_size(path: Path) -> str:
+def get_size(path: path) -> str:
     """get size in KB 
 
     Args:
